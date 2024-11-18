@@ -75,6 +75,12 @@
                   <p>Hudud</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="topshiriq" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Topshiriqlar</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>

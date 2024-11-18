@@ -12,7 +12,7 @@
                             <th scope="col">Id</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Password</th>
+                            {{-- <th scope="col">Password</th> --}}
                             <th scope="col">Role</th>
                             <th scope="col">Delete</th>
                             <th scope="col">Update</th>
@@ -24,7 +24,7 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->password }}</td>
+                                {{-- <td>{{ $user->password }}</td> --}}
                                 <td>{{ $user->role }}</td>
                                 <td>
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">

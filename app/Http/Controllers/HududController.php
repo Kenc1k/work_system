@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreHududRequest;
-use App\Http\Requests\UpdateHududRequest;
+
 use App\Models\Hudud;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,9 +14,10 @@ class HududController extends Controller
      */
     public function index()
     {
-        $hududs = Hudud::all();
+        $hududs = Hudud::with('user')->get();
         return view('hudud.index', compact('hududs'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
