@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function hudud()
+    {
+        return $this->hasMany(Hudud::class);
+    }
 }
