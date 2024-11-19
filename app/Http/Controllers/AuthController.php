@@ -33,15 +33,18 @@ class AuthController extends Controller
         ]);
     }
 
-    // Fetch tasks for authenticated user
     public function userTasks()
     {
-        $user = Auth::user(); // Auth::user() is now guaranteed to be available
-
+        $user = Auth::user();
+    
+        // Fetch tasks along with hudud and topshiriq details
         $tasks = HududTopshiriq::whereHas('hudud', function ($query) use ($user) {
             $query->where('user_id', $user->id);
-        })->get();
-
+        })->with(['hudud', 'topshiriq'])->get();
+    
         return view('tasks.index', compact('tasks'));
     }
+    
+
+    
 }

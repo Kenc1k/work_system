@@ -13,11 +13,23 @@ class TopshiriqController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $topshiriqs = Topshiriq::all();
-        return view('topshiriq.index' , compact('topshiriqs'));
+        $query = Topshiriq::query();
+    
+        // Check if both start_date and end_date are present in the request
+        if ($request->has('start_date') && $request->has('end_date')) {
+            $query->whereBetween('muddat', [$request->start_date, $request->end_date]);
+        }
+    
+        // Optionally, you can check if the user only selects one date (start or end date) and filter accordingly.
+    
+        $topshiriqs = $query->get();
+    
+        return view('topshiriq.index', compact('topshiriqs'));
     }
+    
+    
 
     /**
      * Show the form for creating a new resource.

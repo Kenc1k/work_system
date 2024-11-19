@@ -8,7 +8,7 @@ use App\Http\Controllers\TopshiriqController;
 use App\Http\Controllers\UserController;    
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/' , [UserController::class , "index"]);
+Route::get('/' , [UserController::class , "index"]);
 Route::get('/user_create' , [UserController::class , 'create'])->name('users.create');
 Route::delete('/users/{user}' , [UserController::class , 'destroy'])->name('users.destroy');
 Route::get('/user/{user}/edit' , [UserController::class , 'edit'])->name('users.edit');
@@ -29,7 +29,7 @@ Route::get('/hudud/{id}/edit' , [HududController::class , 'edit'])->name('hudud.
 Route::post('/hudud_store' , [HududController::class , 'store'])->name('hudud.store');
 Route::put('/hudud/{hudud}' , [HududController::class , 'update'])->name('hudud.update');
 
-Route::get('/topshiriq' , [TopshiriqController::class , "index"]);
+Route::get('/topshiriq' , [TopshiriqController::class , "index"])->name('topshiriq.index');
 Route::get('/topshiriq_create' , [TopshiriqController::class , 'create'])->name('topshiriq.create');
 Route::delete('/topshiriqs/{id}' , [TopshiriqController::class , 'destroy'])->name('topshiriq.destroy');
 Route::get('/topshiriq/{id}/edit' , [TopshiriqController::class , 'edit'])->name('topshiriq.edit');
@@ -44,7 +44,7 @@ Route::post('/hudud_topshiriq' , [HududTopshiriqController::class , 'store'])->n
 Route::put('/hudud_topshiriq/{id}' , [HududTopshiriqController::class , 'update'])->name('hudud_topshiriq.update');
 
 
-Route::get('/', [AuthController::class, 'loginPage'])->name('login.page');
+// Route::get('/', [AuthController::class, 'loginPage'])->name('login.page');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::middleware(['auth'])->group(function () {
