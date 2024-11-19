@@ -18,4 +18,10 @@ class Hudud extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function hududtopshiriq()
+    {
+        return $this->hasMany(HududTopshiriq::class);
+    }
+
 }

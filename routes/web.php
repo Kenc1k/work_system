@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HududController;
+use App\Http\Controllers\HududTopshiriqController;
 use App\Http\Controllers\TopshiriqController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserController;    
 use Illuminate\Support\Facades\Route;
 
-Route::get('/' , [UserController::class , "index"]);
+// Route::get('/' , [UserController::class , "index"]);
 Route::get('/user_create' , [UserController::class , 'create'])->name('users.create');
 Route::delete('/users/{user}' , [UserController::class , 'destroy'])->name('users.destroy');
 Route::get('/user/{user}/edit' , [UserController::class , 'edit'])->name('users.edit');
@@ -33,3 +35,20 @@ Route::delete('/topshiriqs/{id}' , [TopshiriqController::class , 'destroy'])->na
 Route::get('/topshiriq/{id}/edit' , [TopshiriqController::class , 'edit'])->name('topshiriq.edit');
 Route::post('/topshiriq_store' , [TopshiriqController::class , 'store'])->name('topshiriq.store');
 Route::put('/topshiriq/{topshiriq}' , [TopshiriqController::class , 'update'])->name('topshiriq.update');
+
+Route::get('/hudud_topshiriq' , [HududTopshiriqController::class , "index"]);
+Route::get('/hudud_topshiriq_create' , [HududTopshiriqController::class , 'create'])->name('hudud_topshiriq.create');
+Route::delete('/hudud_topshiriq/{id}' , [HududTopshiriqController::class , 'destroy'])->name('hudud_topshiriq.destroy');
+Route::get('/hudud_topshiriq/{id}/edit' , [HududTopshiriqController::class , 'edit'])->name('hudud_topshiriq.edit');
+Route::post('/hudud_topshiriq' , [HududTopshiriqController::class , 'store'])->name('hudud_topshiriq.store');
+Route::put('/hudud_topshiriq/{id}' , [HududTopshiriqController::class , 'update'])->name('hudud_topshiriq.update');
+
+
+Route::get('/', [AuthController::class, 'loginPage'])->name('login.page');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/tasks', [AuthController::class, 'userTasks'])->name('user.tasks');
+});
+
+

@@ -24,4 +24,9 @@ class Topshiriq extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function hududtopshriq()
+    {
+        return $this->hasMany(HududTopshiriq::class);
+    }
 }

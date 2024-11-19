@@ -81,6 +81,12 @@
                   <p>Topshiriqlar</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="hudud_topshiriq" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>hudud_topshiriq</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
